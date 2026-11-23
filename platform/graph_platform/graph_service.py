@@ -4,6 +4,8 @@ from graph_api import DataSourcePlugin, Graph, VisualizerPlugin
 
 from .plugin_loader import PluginLoader
 
+from .search import search_graph
+
 
 class GraphServiceError(Exception):
     """Baca se kada učitavanje ili prikaz grafa ne uspe."""
@@ -88,3 +90,8 @@ class GraphService:
                 f"Visualizer '{visualizer_id}' nije vratio string."
             )
         return html
+
+    
+    def search(self, graph: Graph, query: str) -> Graph:
+        """Vraća podgraf čiji čvorovi sadrže upit u nazivu ili vrednosti atributa."""
+        return search_graph(graph, query)
