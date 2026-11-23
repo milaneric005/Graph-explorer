@@ -5,6 +5,7 @@ from .plugin_loader import (
     PluginLoader,
     PluginNotFoundError,
 )
+from .search import search_graph
 
 __all__ = [
     "GraphService",
@@ -13,4 +14,5 @@ __all__ = [
     "PluginNotFoundError",
     "DATA_SOURCE_GROUP",
     "VISUALIZER_GROUP",
+    "search_graph",
 ]
