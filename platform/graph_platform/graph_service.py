@@ -2,6 +2,8 @@ from typing import List, Optional
 
 from graph_api import DataSourcePlugin, Graph, VisualizerPlugin
 
+from .filter import filter_graph
+
 from .plugin_loader import PluginLoader
 
 from .search import search_graph
@@ -95,3 +97,11 @@ class GraphService:
     def search(self, graph: Graph, query: str) -> Graph:
         """Vraća podgraf čiji čvorovi sadrže upit u nazivu ili vrednosti atributa."""
         return search_graph(graph, query)
+
+    
+    def filter(self, graph: Graph, query: str) -> Graph:
+        """Vraća podgraf čiji čvorovi zadovoljavaju filter (npr. "Age >= 30").
+
+        Baca FilterError ako upit nije ispravan ili vrednost nije odgovarajućeg tipa.
+        """
+        return filter_graph(graph, query)

@@ -5,9 +5,14 @@ from .plugin_loader import (
     PluginLoader,
     PluginNotFoundError,
 )
+from .filter import FilterCondition, FilterError, filter_graph, parse_filter
 from .search import search_graph
 
 __all__ = [
+    "FilterCondition",
+    "FilterError",
+    "filter_graph",
+    "parse_filter",
     "GraphService",
     "GraphServiceError",
     "PluginLoader",
